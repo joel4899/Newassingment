@@ -1,0 +1,19 @@
+﻿@model presentation.Models.ViewModels.BookingConfirmationViewModel
+
+@{
+    ViewData["Title"] = "Booking Confirmation";
+}
+
+<h2>Booking Confirmation</h2>
+
+<div>
+    <h3>Your Flight Details</h3>
+    <p><strong>Flight ID:</strong> @Model.FlightIdFk</p>
+    <p><strong>Row:</strong> @Model.Row</p>
+    <p><strong>Column:</strong> @Model.Column</p>
+    <p><strong>Passport Number:</strong> @Model.PassportNumber</p>
+    <p><strong>Price Paid</strong>:  @Model.PricePaid</p>
+    <p>Passport Photo</p><img src="@Model.Image">
+</div>
+
+<!-- Other links and forms as before -->

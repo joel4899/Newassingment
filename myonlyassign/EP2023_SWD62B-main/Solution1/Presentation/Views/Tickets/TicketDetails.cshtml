@@ -1,0 +1,14 @@
+﻿@using Domain
+@model Ticket
+
+<h2>Ticket Details</h2>
+
+<p>Ticket ID: @Model.Id</p>
+<p>Flight ID: @Model.FlightIdFk</p>
+<p> Column: @Model.Column</p>
+<p> Row: @Model.Row</p>
+<p>Passport Number: @Model.PassportNumber</p>
+<p>Passport Photo</p><img src="@Model.Image">
+
+<p>Price Paid: @Model.PricePaid.ToString("C")</p>
+<!-- Display other details as needed -->

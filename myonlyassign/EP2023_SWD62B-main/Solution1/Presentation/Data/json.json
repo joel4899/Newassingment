@@ -1,0 +1,8 @@
+{
+  "FlightId": 12345,
+  "Row": "A",
+  "Column": "10",
+  "PassportNumber": "AB1234567",
+  "PricePaid": 250.00,
+  "Imagefile": "identifier.jpg"
+}

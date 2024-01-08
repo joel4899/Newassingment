@@ -1,0 +1,21 @@
+﻿@using Domain
+@model IEnumerable<Ticket>
+
+<h2>Past Purchases</h2>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+        @foreach (var ticket in Model)
+        {
+            <li>
+                Ticket ID: @ticket.Id
+                - <a asp-action="TicketDetails" asp-route-ticketId="@ticket.Id">View Details</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>You have no past purchases.</p>
+}

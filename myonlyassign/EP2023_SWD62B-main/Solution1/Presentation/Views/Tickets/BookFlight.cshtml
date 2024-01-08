@@ -1,0 +1,58 @@
+﻿@model presentation.Models.ViewModels.BookFlightViewModel
+@{
+    Layout = "_Layout"; // Set to the name of your layout file
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Book Flight</title>
+    <h2>Book Flight</h2>
+</head>
+<body>
+    <form asp-action="BookFlight" asp-controller="Tickets" method="post" enctype="multipart/form-data">
+        
+        <div>
+            <label asp-for="FlightId">Flight ID</label>
+            <input asp-for="FlightId" readonly />
+        </div>
+
+        
+
+        <!-- Add additional fields for ticket details -->
+        <div>
+            <label asp-for="Row">Row</label>
+            <input asp-for="Row" />
+        </div>
+
+        <div>
+            <label asp-for="Column">Column</label>
+            <input asp-for="Column" />
+        </div>
+
+        <div>
+            <label asp-for="PassportNumber">Passport Number</label>
+            <input asp-for="PassportNumber" />
+        </div>
+      
+        <div class="form-group">
+            <label class="control-label">Upload Image</label>
+            <input name="Imagefile" class="form-control" type="file" />
+        </div>
+       
+        <input type="hidden" asp-for="PricePaid" />
+
+
+        <!-- You may include other fields as necessary based on your BookFlightViewModel -->
+
+        <input type="submit" value="Book Flight" />
+    </form>
+    <a asp-action="Register" asp-controller="Account">Register</a>
+    <a asp-action="Login" asp-controller="Account">Login</a>
+    <form asp-action="Logout" asp-controller="Account" method="post">
+        <button type="submit">Logout</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<presentation.Models.ViewModels.FlightViewModel>
+
+
+
+@{
+    Layout = "_Layout"; // Set to the name of your layout file
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List of Flights</title>
+    <!-- Add any styles or scripts you need here -->
+</head>
+<body>
+    <h1>Available Flights</h1>
+
+    <!-- Check if there are any flights -->
+    @if (Model.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Flight ID</th>
+                    <th>Departure Date</th>
+                    <th>Is Fully Booked?</th>
+                    <th>Wholesale Price</th>
+                    <!-- Add more headers as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var flight in Model)
+                {
+                    <tr>
+                        <td>@flight.FlightId</td>
+                        <td>@flight.DepartureDate.ToString("g")</td> <!-- g for general date/time pattern (short time) -->
+                        <td>@(flight.IsFullyBooked ? "Yes" : "No")</td>
+                        <td>$@flight.WholeSalePrice.ToString("0.00")</td> <!-- Format price as currency -->
+                        <!-- Add more columns as needed -->
+                        <td>
+                            <!-- Add a Book button/link if the flight is not fully booked -->
+                            @if (!flight.IsFullyBooked)
+                            {
+                                <a asp-action="BookFlight" asp-route-flightId="@flight.FlightId" class="btn btn-primary">Book This Flight</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No flights are available at the moment.</p>
+    }
+  
+
+</body>
+</html>
